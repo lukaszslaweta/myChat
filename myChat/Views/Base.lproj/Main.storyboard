@@ -48,7 +48,7 @@
                                     <color key="titleColor" name="BrandBlue"/>
                                 </state>
                                 <connections>
-                                    <segue destination="JKd-RB-GLP" kind="show" id="t0i-fx-xkm"/>
+                                    <segue destination="JKd-RB-GLP" kind="show" id="d8m-CC-TdI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -116,7 +116,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0EQ-nO-DgW">
                                         <rect key="frame" x="50" y="50" width="314" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaX-8N-gRH">
                                         <rect key="frame" x="107" y="119" width="200" height="31"/>
@@ -125,6 +125,9 @@
                                         <state key="normal" title="Register">
                                             <color key="titleColor" name="BrandBlue"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerPressed:" destination="JKd-RB-GLP" eventType="touchUpInside" id="RCg-Lt-USw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -157,9 +160,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="TMq-UI-Nun"/>
                     <connections>
-                        <outlet property="emailTextfield" destination="2DH-HZ-0aQ" id="ndj-Iv-piP"/>
-                        <outlet property="passwordTextfield" destination="uaX-8N-gRH" id="vjE-8J-aP1"/>
-                        <outlet property="registerPressed" destination="uaX-8N-gRH" id="wJA-wA-dYh"/>
+                        <outlet property="emailTextfield" destination="2DH-HZ-0aQ" id="JEn-gb-K2g"/>
+                        <outlet property="passwordTextfield" destination="0EQ-nO-DgW" id="u3I-Mt-AcS"/>
                         <segue destination="8hL-oU-Ex8" kind="show" identifier="RegisterToChat" id="Mjf-ef-ytd"/>
                     </connections>
                 </viewController>
@@ -208,8 +210,9 @@
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QQ8-a1-cUt">
                                         <rect key="frame" x="159" y="31" width="97" height="34"/>
+                                        <color key="textColor" name="BrandBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WX-Mr-TTw">
                                         <rect key="frame" x="0.0" y="121" width="414" height="49"/>
@@ -218,6 +221,9 @@
                                         <state key="normal" title="Log in">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginPressed:" destination="FFr-uK-9xB" eventType="touchUpInside" id="1kW-se-dwy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -249,6 +255,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="NzC-vr-MeV"/>
                     <connections>
+                        <outlet property="emailTextfield" destination="QaU-CX-Exr" id="AxD-aj-7jC"/>
+                        <outlet property="passwordTextfield" destination="QQ8-a1-cUt" id="XYh-AP-Xtq"/>
                         <segue destination="8hL-oU-Ex8" kind="show" identifier="LoginToChat" id="o89-69-Isv"/>
                     </connections>
                 </viewController>
@@ -301,6 +309,9 @@
                                             <imageReference key="image" image="paperplane.fill" catalog="system" symbolScale="large"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="sendPressed:" destination="8hL-oU-Ex8" eventType="touchUpInside" id="jsz-Pc-eHT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -328,7 +339,17 @@
                             <constraint firstItem="Yjn-BK-Xy1" firstAttribute="trailing" secondItem="Wa6-1o-zeE" secondAttribute="trailing" id="zMb-53-Reb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="LMP-b5-YqP" userLabel="Navigation Item"/>
+                    <navigationItem key="navigationItem" title="Title" id="LMP-b5-YqP" userLabel="Navigation Item">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="RbP-ug-bbA">
+                            <connections>
+                                <action selector="logOutPressed:" destination="8hL-oU-Ex8" id="9Cr-6a-avb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="messageTextfield" destination="97b-nb-F7w" id="9Ud-12-zXT"/>
+                        <outlet property="tableView" destination="Yjn-BK-Xy1" id="yFa-De-dlT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Nf-IJ-R5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
